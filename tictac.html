@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tic Tac Toy</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      .tictac {
+        display: grid;
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(3, 100px);
+        width: 50%;
+        margin: 30px auto;
+      }
+      input {
+        background-color: brown;
+        color: #fff;
+        font-size: 40px;
+      }
+      input:hover {
+        background-color: #000;
+        border-style: solid;
+        color: #fff;
+        transition: all 0.9s ease-in-out;
+      }
+      h1,
+      h3 {
+        width: 50%;
+        margin: 30px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Tic Tac Toe Game</h1>
+    <div class="tictac" id="cc">
+      <input type="button" value="" id="b1" onClick="reply_click(this.id)" />
+      <input type="button" value="" id="b2" onClick="reply_click(this.id)" />
+      <input type="button" value="" id="b3" onClick="reply_click(this.id)" />
+      <input type="button" value="" id="b4" onClick="reply_click(this.id)" />
+      <input type="button" value="" id="b5" onClick="reply_click(this.id)" />
+      <input type="button" value="" id="b6" onClick="reply_click(this.id)" />
+      <input type="button" value="" id="b7" onClick="reply_click(this.id)" />
+      <input type="button" value="" id="b8" onClick="reply_click(this.id)" />
+      <input type="button" value="" id="b9" onClick="reply_click(this.id)" />
+    </div>
+    <h3 id="turn">Player 1's turn</h3>
+  </body>
+  <script>
+    function b(id) {
+      return document.getElementById(id);
+    }
+    var tt = "";
+    function reply_click(obj) {
+      tt = obj;
+    }
+    let p1 = 0,
+      p2 = 0,
+      cl = 0;
+    let t2 = "Player 2's turn",
+      t1 = "Player 1's turn";
+    let btns = document.getElementsByTagName("input");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", turn);
+    }
+    function player1() {
+      cl++;
+      b(tt).value = "X";
+      b(tt).disabled = true;
+    }
+    function player2() {
+      b(tt).value = "O";
+      b(tt).disabled = true;
+      cl--;
+    }
+    function dis() {
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].disabled = true;
+      }
+      b("turn").innerHTML = "<a href='tictac.html'>Restart game</a>";
+    }
+    let b1 = b("b1");
+    let b2 = b("b2");
+    let b3 = b("b3");
+    let b4 = b("b4");
+    let b5 = b("b5");
+    let b6 = b("b6");
+    let b7 = b("b7");
+    let b8 = b("b8");
+    let b9 = b("b9");
+    function x() {
+      if (b1.value == "X" && b2.value == "X" && b3.value == "X") {
+        b1.style.backgroundColor = "black";
+        b2.style.backgroundColor = "black";
+        b3.style.backgroundColor = "black";
+        alert("Player 1 wins");
+        dis();
+      } else if (b4.value == "X" && b5.value == "X" && b6.value == "X") {
+        b4.style.backgroundColor = "black";
+        b5.style.backgroundColor = "black";
+        b6.style.backgroundColor = "black";
+        alert("Player 1 wins");
+        dis();
+      } else if (b7.value == "X" && b8.value == "X" && b9.value == "X") {
+        b7.style.backgroundColor = "black";
+        b8.style.backgroundColor = "black";
+        b9.style.backgroundColor = "black";
+        alert("Player 1 wins");
+        dis();
+      } else if (b1.value == "X" && b4.value == "X" && b7.value == "X") {
+        b1.style.backgroundColor = "black";
+        b4.style.backgroundColor = "black";
+        b7.style.backgroundColor = "black";
+        alert("Player 1 wins");
+        dis();
+      } else if (b2.value == "X" && b5.value == "X" && b8.value == "X") {
+        b2.style.backgroundColor = "black";
+        b5.style.backgroundColor = "black";
+        b8.style.backgroundColor = "black";
+        alert("Player 1 wins");
+        dis();
+      } else if (b3.value == "X" && b6.value == "X" && b9.value == "X") {
+        b3.style.backgroundColor = "black";
+        b6.style.backgroundColor = "black";
+        b9.style.backgroundColor = "black";
+        alert("Player 1 wins");
+        dis();
+      } else if (b1.value == "X" && b5.value == "X" && b9.value == "X") {
+        b1.style.backgroundColor = "black";
+        b5.style.backgroundColor = "black";
+        b9.style.backgroundColor = "black";
+        alert("Player 1 wins");
+        dis();
+      } else if (b3.value == "X" && b5.value == "X" && b7.value == "X") {
+        b3.style.backgroundColor = "black";
+        b5.style.backgroundColor = "black";
+        b7.style.backgroundColor = "black";
+        alert("Player 1 wins");
+        dis();
+      } else {
+      }
+    }
+    function o() {
+      if (b1.value == "O" && b2.value == "O" && b3.value == "O") {
+        b1.style.backgroundColor = "blue";
+        b2.style.backgroundColor = "blue";
+        b3.style.backgroundColor = "blue";
+        alert("Player 2 wins");
+        dis();
+      } else if (b4.value == "O" && b5.value == "O" && b6.value == "O") {
+        b4.style.backgroundColor = "blue";
+        b5.style.backgroundColor = "blue";
+        b6.style.backgroundColor = "blue";
+        alert("Player 2 wins");
+        dis();
+      } else if (b7.value == "O" && b8.value == "O" && b9.value == "O") {
+        b7.style.backgroundColor = "blue";
+        b8.style.backgroundColor = "blue";
+        b9.style.backgroundColor = "blue";
+        alert("Player 2 wins");
+        dis();
+      } else if (b1.value == "O" && b4.value == "O" && b7.value == "O") {
+        b1.style.backgroundColor = "blue";
+        b4.style.backgroundColor = "blue";
+        b7.style.backgroundColor = "blue";
+        alert("Player 2 wins");
+        dis();
+      } else if (b2.value == "O" && b5.value == "O" && b8.value == "O") {
+        b2.style.backgroundColor = "blue";
+        b5.style.backgroundColor = "blue";
+        b8.style.backgroundColor = "blue";
+        alert("Player 2 wins");
+        dis();
+      } else if (b3.value == "O" && b6.value == "O" && b9.value == "O") {
+        b3.style.backgroundColor = "blue";
+        b6.style.backgroundColor = "blue";
+        b9.style.backgroundColor = "blue";
+        alert("Player 2 wins");
+        dis();
+      } else if (b1.value == "O" && b5.value == "O" && b9.value == "O") {
+        b1.style.backgroundColor = "blue";
+        b5.style.backgroundColor = "blue";
+        b9.style.backgroundColor = "blue";
+        alert("Player 2 wins");
+        dis();
+      } else if (b3.value == "O" && b5.value == "O" && b7.value == "O") {
+        b3.style.backgroundColor = "blue";
+        b5.style.backgroundColor = "blue";
+        b7.style.backgroundColor = "blue";
+        alert("Player 2 wins");
+        dis();
+      } else {
+      }
+    }
+    function turn() {
+      if (cl == 0) {
+        b("turn").innerHTML = t1;
+        player1();
+        o();
+        x();
+      } else {
+        b("turn").innerHTML = t2;
+        player2();
+        o();
+        x();
+      }
+    }
+  </script>
+</html>
